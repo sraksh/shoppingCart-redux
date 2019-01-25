@@ -6,7 +6,6 @@ let initialState = {
 
 
 function productItems(state=initialState, action) {
-  // console.log(action);
   switch(action.type) {
     case 'FETCH_PRODUCTS':
       return {

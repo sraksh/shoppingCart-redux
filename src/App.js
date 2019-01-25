@@ -10,7 +10,6 @@ import * as Actions from './actions';
 
 import './App.css';
 
-
 const mapStateToProps = state => ({
   productItems: state.productItems,
   cartItems: state.cartItems,
@@ -20,16 +19,13 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(Actions, dispatch)
 })
 
-
 class App extends Component {
   render() {
     return (
       <div className="App">
        <Header />
        <div className="shopping-cart-container">
-        <ProductList 
-          { ...this.props }
-        />
+        <ProductList {...this.props}/>
         <CartSummary cartItems={this.props.cartItems}/>
        </div>
       </div>
