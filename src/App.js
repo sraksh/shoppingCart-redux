@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import Header from './components/Header/Header.js';
+import ProductList from './components/ProductList/ProductList.js';
+import CartSummary from './components/CartSummary/CartSummary.js';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from './actions';
+
 import './App.css';
+
+
+const mapStateToProps = state => ({
+  productItems: state.productItems,
+  cartItems: state.cartItems,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+})
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+       <Header />
+       <div className="shopping-cart-container">
+        <ProductList 
+          { ...this.props }
+        />
+        <CartSummary cartItems={this.props.cartItems}/>
+       </div>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
