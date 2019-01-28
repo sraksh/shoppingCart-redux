@@ -7,7 +7,6 @@ npm  install
 npm start
 
 
-to run the App
-# ShoppingCart
+to run the App ShoppingCart
 
 Watch demo: https://sraksh.github.io/shoppingCart-redux/
