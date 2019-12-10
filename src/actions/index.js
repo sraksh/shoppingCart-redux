@@ -1,6 +1,3 @@
-import axios from 'axios';
-
-const URL = "https://raw.githubusercontent.com/sraksh/sHOPcart/master/src/data/products.json";
 
 export const addItem = (data) => ({
   type: 'ADD_ITEM',
@@ -12,16 +9,7 @@ export const removeItem = id => ({
   id
 });
 
-export const populateProducts = res => ({
-  type: 'FETCH_PRODUCTS',
-  payload: res
-});
 
-export const fetchProducts = () => {
-  return (dispatch) => {
-    axios.get(URL).then((res) => {
-      dispatch(populateProducts(res));
-    });
-  };
- 
-};
+export const getProducts = () => ({
+  type: 'GET_PRODUCTS'
+});

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from './components/Header/Header.js';
 import ProductList from './components/ProductList/ProductList.js';
 import CartSummary from './components/CartSummary/CartSummary.js';
+import Loader from './components/Loader/Loader'
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -26,6 +27,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="shopping-cart-container">
+          <Loader {...this.props}/>
           <ProductList {...this.props}/>
           <CartSummary cartItems={this.props.cartItems}/>
         </div>

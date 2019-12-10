@@ -7,10 +7,13 @@ let initialState = {
 
 function productItems(state=initialState, action) {
   switch(action.type) {
+  case 'GET_PRODUCTS':
+    return { ...state, loading: true };
   case 'FETCH_PRODUCTS':
     return {
       ...state,
-      productItems: [...state.productItems, action.payload.data]
+      productItems: [...state.productItems, action.payload.data],
+      loading: false
     };
 
   default:

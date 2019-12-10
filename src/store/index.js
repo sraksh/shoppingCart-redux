@@ -2,17 +2,21 @@
 
 import { createStore, applyMiddleware, compose  } from 'redux';
 import rootReducer from '../reducers';
-import thunk from 'redux-thunk';
-
+import { logger } from 'redux-logger';
+// import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from '../sagas/saga'
 // create an object for the default data
 const defaultState = {
   
 };
 
+const sagaMiddleware = createSagaMiddleware()
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancer = composeEnhancers(
-  applyMiddleware(thunk),
+  applyMiddleware(sagaMiddleware, logger),
   // other store enhancers if any
 );
 
@@ -23,5 +27,6 @@ const store = createStore(
   // applyMiddleware(thunk),
   enhancer
 );
+sagaMiddleware.run(rootSaga)
 
 export default store;

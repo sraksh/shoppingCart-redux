@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class ProductList extends Component {
   
   componentDidMount() {
-    this.props.actions.fetchProducts();
+    this.props.actions.getProducts();
   }
 
   render() {
