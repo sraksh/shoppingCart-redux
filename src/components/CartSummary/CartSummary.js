@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './CartSummary.css';
+import PropTypes from 'prop-types';
 
 class CartSummary extends Component {
   
@@ -30,7 +31,7 @@ class CartSummary extends Component {
     return (
       <div className="card-summary-container">
         <h5 className="card-summary">Cart summary</h5>
-          {this.props.cartItems.cartItems.length ? itemsList : emptyBlock}
+        {this.props.cartItems.cartItems.length ? itemsList : emptyBlock}
         <div className="cart__total list-group-item">
           <span className="cart__total__text">Total:</span>
           <span className="cart__total__amount">{total} EUR</span>
@@ -39,5 +40,9 @@ class CartSummary extends Component {
     );
   }
 }
+
+CartSummary.propTypes = {
+  cartItems: PropTypes.object
+};
 
 export default CartSummary;

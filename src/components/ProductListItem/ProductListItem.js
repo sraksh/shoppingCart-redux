@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ProductListItem.css';
+import PropTypes from 'prop-types';
 
 class ProductListItem extends Component {
   
@@ -13,15 +14,20 @@ class ProductListItem extends Component {
   render() {
     return (
       <div className="card">
-        <img className="card-img-top" src={this.props.product.image} alt="Card image cap" />
+        <img className="card-img-top" src={this.props.product.image} alt="Card cap" />
         <div className="card-body">
-          <h5 className="card-title">{this.props.product.name}</h5>
-          <p className="card-text">{this.props.product.price}</p>
+          <h5 className="card-title" data-testid="card-title">{this.props.product.name}</h5>
+          <p className="card-text" data-testid="card-text">{this.props.product.price}</p>
         </div>
-        <button className={this.props.product.isAddedToCart ? "btn btn-danger" : "btn btn-primary"} onClick={this.props.product.isAddedToCart ? () => this.removeProductFromCart(this.props.product.id) : () => this.addProductToCart(this.props.product) }> {this.props.product.isAddedToCart ? "Remove" : "Add To Cart"} </button>
+        <button data-testid="product-action-button" className={this.props.product.isAddedToCart ? "btn btn-danger" : "btn btn-primary"} onClick={this.props.product.isAddedToCart ? () => this.removeProductFromCart(this.props.product.id) : () => this.addProductToCart(this.props.product) }> {this.props.product.isAddedToCart ? "Remove" : "Add To Cart"} </button>
       </div>
     );
   }
 }
+
+ProductListItem.propTypes = {
+  product: PropTypes.object,
+  actions: PropTypes.object
+};
 
 export default ProductListItem;

@@ -22,6 +22,6 @@ export const fetchProducts = () => {
     axios.get(URL).then((res) => {
       dispatch(populateProducts(res));
     });
-  }
+  };
  
-}
+};

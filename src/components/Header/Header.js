@@ -5,7 +5,7 @@ class Header extends Component {
     return (
       <div className="common-header-wrapper">
         <header className="common-header">
-          <h1>Shopping Cart</h1>
+          <h1 data-testid="header-display">Shopping Cart</h1>
         </header>
       </div>
     );
