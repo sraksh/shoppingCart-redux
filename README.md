@@ -1,5 +1,5 @@
 --------------------------
-A React Redux app of shopping cart using thunk as middleware
+A React Redux app of shopping cart using redux-saga as middleware
 --------------------------
 
 npm  install
